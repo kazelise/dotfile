@@ -1,0 +1,13 @@
+# 首先忽略所有内容
+*
+*/
+
+# 然后明确包含你想要跟踪的文件夹和文件
+!fish/
+!fish/**
+!yazi/
+!yazi/**
+!nvim/
+!nvim/**
+!starship.toml
+!.gitignore
