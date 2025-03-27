@@ -1,0 +1,169 @@
+after-login-command = []
+
+after-startup-command = [
+  # JankyBorders has a built-in detection of already running process,
+  # so it won't be run twice on AeroSpace restart
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+]
+
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+
+default-root-container-orientation = 'auto'
+
+key-mapping.preset = 'qwerty'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+
+[gaps]
+inner.horizontal = 7
+inner.vertical = 7
+outer.left = 7
+outer.bottom = 7
+outer.top = 7
+outer.right = 7
+
+[mode.main.binding]
+cmd-h = []                                         # Disable "hide application"
+cmd-alt-h = []                                     # Disable "hide others"
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+alt-f = 'fullscreen'
+alt-shift-f = 'layout floating tiling'
+alt-shift-q = 'close'
+
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+alt-1 = 'workspace Ⅰ'
+alt-2 = 'workspace Ⅱ'
+alt-3 = 'workspace Ⅲ'
+alt-4 = 'workspace Ⅳ'
+alt-5 = 'workspace Ⅴ'
+alt-6 = 'workspace Ⅵ'
+alt-7 = 'workspace Ⅶ'
+alt-8 = 'workspace Ⅷ	'
+alt-9 = 'workspace Ⅸ'
+alt-0 = 'workspace Ⅹ'
+
+alt-shift-1 = 'move-node-to-workspace Ⅰ'
+alt-shift-2 = 'move-node-to-workspace Ⅱ'
+alt-shift-3 = 'move-node-to-workspace Ⅲ'
+alt-shift-4 = 'move-node-to-workspace Ⅳ'
+alt-shift-5 = 'move-node-to-workspace Ⅴ'
+alt-shift-6 = 'move-node-to-workspace Ⅵ'
+alt-shift-7 = 'move-node-to-workspace Ⅶ'
+alt-shift-8 = 'move-node-to-workspace Ⅷ	'
+alt-shift-9 = 'move-node-to-workspace Ⅸ'
+alt-shift-0 = 'move-node-to-workspace Ⅹ'
+
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+alt-shift-r = 'mode resize'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'com.tencent.xinWeChat'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tencent.qq'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.ranchero.NetNewsWire-Evergreen'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.nssurge.surge-dashboard'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.example.kazumi'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.sindresorhus.Plain-Text-Editor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calendar'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.note'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.soda.music'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.cron.electron'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'zlibrary'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.app.mbaomcnacnfldeimbdjpaegmpdmpjpmk'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.app.fnliccjmkoaekbfnoengedkphlaempec'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.flomoapp.m'
+run = 'layout floating'
