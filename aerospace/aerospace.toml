@@ -4,6 +4,14 @@ after-startup-command = [
   # JankyBorders has a built-in detection of already running process,
   # so it won't be run twice on AeroSpace restart
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+  'exec-and-forget sketchybar',
+]
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 
 start-at-login = true
@@ -23,12 +31,21 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 
 [gaps]
-inner.horizontal = 7
-inner.vertical = 7
-outer.left = 7
-outer.bottom = 7
-outer.top = 7
-outer.right = 7
+inner.horizontal = 15
+inner.vertical = 15
+outer.left = 15
+outer.bottom = 15
+outer.top = 50
+outer.right = 15
+
+[workspace-to-monitor-force-assignment]
+1 = 1                           # Monitor sequence number from left to right. 1-based indexing
+2 = 'main'                      # Main monitor
+3 = 'secondary'                 # Non-main monitor in case when there are only two monitors
+4 = 'built-in'                  # Case insensitive regex substring
+5 = '^built-in retina display$' # Case insensitive regex match
+6 = ['secondary', 'dell']       # You can specify multiple patterns.
+#   The first matching pattern will be used
 
 [mode.main.binding]
 cmd-h = []                                         # Disable "hide application"
@@ -36,10 +53,10 @@ cmd-alt-h = []                                     # Disable "hide others"
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
-alt-h = 'focus left'
+alt-h = 'focus left --boundaries-action wrap-around-the-workspace'
 alt-j = 'focus down'
 alt-k = 'focus up'
-alt-l = 'focus right'
+alt-l = 'focus right --boundaries-action wrap-around-the-workspace'
 alt-f = 'fullscreen'
 alt-shift-f = 'layout floating tiling'
 alt-shift-q = 'close'
@@ -59,7 +76,7 @@ alt-4 = 'workspace Ⅳ'
 alt-5 = 'workspace Ⅴ'
 alt-6 = 'workspace Ⅵ'
 alt-7 = 'workspace Ⅶ'
-alt-8 = 'workspace Ⅷ	'
+alt-8 = 'workspace Ⅷ'
 alt-9 = 'workspace Ⅸ'
 alt-0 = 'workspace Ⅹ'
 
@@ -122,18 +139,6 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.sindresorhus.Plain-Text-Editor'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.calendar'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.note'
 run = 'layout floating'
 
 [[on-window-detected]]
