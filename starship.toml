@@ -149,10 +149,10 @@ format = "at $output"
 symbol = "[](black) "
 # format =  ' [$symbol$branch(:$remote_branch)]($style)[]'
 style = "fg:lavender bg:black"
-format = '  on [$symbol$branch]($style)[](black)'
+format = 'on [$symbol$branch]($style)[](black)'
 
 [git_status]
-format = ' [($all_status$ahead_behind )]($style)'
+format = '[($all_status$ahead_behind )]($style)'
 
 [nodejs]
 symbol = ""
@@ -173,10 +173,6 @@ detect_files = ["go.mod"]
 
 [php]
 symbol = ""
-format = '[[ $symbol( $version) ]]($style)'
-
-[java]
-symbol = " "
 format = '[[ $symbol( $version) ]]($style)'
 
 [kotlin]
