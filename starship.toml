@@ -102,10 +102,10 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [username]
-#show_always = true
-#style_user = "bg:surface0 fg:text"
-#style_root = "bg:surface0 fg:text"
-#format = '[ $user ]($style)'
+show_always = true
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
 
 [directory]
 style = "sapphire"

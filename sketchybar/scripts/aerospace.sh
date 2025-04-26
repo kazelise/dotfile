@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义颜色
-INACTIVE_ICON_COLOR=0xFFD7448A # 非选中时的粉色
+INACTIVE_ICON_COLOR=0xFF1E90FF # 非选中时的蓝色（DodgerBlue）
 ACTIVE_ICON_COLOR=0xFFFFFFFF   # 选中时的白色
 
 # 判断并只设置图标颜色
