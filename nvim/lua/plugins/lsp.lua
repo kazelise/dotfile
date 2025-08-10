@@ -12,6 +12,9 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				"jdtls",
+				"sonarlint-language-server",
+				"google-java-format",
 			})
 		end,
 	},
@@ -21,8 +24,9 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			inlay_hints = { enabled = false },
-			---@type lspconfig.options
+			--@type lspconfig.options
 			servers = {
+				jdtls = {},
 				cssls = {},
 				tailwindcss = {
 					root_dir = function(...)

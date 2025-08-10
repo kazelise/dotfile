@@ -89,20 +89,16 @@ return {
 	-- filename
 	{
 		"b0o/incline.nvim",
-		dependencies = { "catppuccin/nvim" },
+		dependencies = { "craftzdog/solarized-osaka.nvim" },
 		event = "BufReadPre",
 		priority = 1200,
 		config = function()
-			-- 从 Catppuccin 获取 Latte 调色板
-			local colors = require("catppuccin.palettes").get_palette("latte")
-
+			local colors = require("solarized-osaka.colors").setup()
 			require("incline").setup({
 				highlight = {
 					groups = {
-						-- 活动窗口: Flamingo 背景, Crust 文字/图标
-						InclineNormal = { guibg = colors.flamingo, guifg = colors.crust },
-						-- 非活动窗口: Mantle 背景, Overlay1 文字/图标
-						InclineNormalNC = { guifg = colors.overlay1, guibg = colors.mantle },
+						InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+						InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
 					},
 				},
 				window = { margin = { vertical = 0, horizontal = 1 } },
@@ -115,16 +111,12 @@ return {
 						filename = "[+] " .. filename
 					end
 
-					-- 只获取图标本身，用 "_" 忽略它返回的颜色
-					local icon, _ = require("nvim-web-devicons").get_icon_color(filename)
-
-					-- 不再为图标单独设置颜色，让它和文字一起继承 InclineNormal 的样式
-					return { { icon }, { " " }, { filename } }
+					local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+					return { { icon, guifg = color }, { " " }, { filename } }
 				end,
 			})
 		end,
 	},
-
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -146,7 +138,7 @@ return {
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		enabled = true,
+		enabled = false,
 	},
 
 	{

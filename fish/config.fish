@@ -1,6 +1,5 @@
 if status is-interactive
-    starship init fish | source
-    mise activate fish | source
+    # starship init fish | source
 end
 
 # 添加 Homebrew 到 PATH
@@ -14,13 +13,10 @@ function fish_conda_prompt
 end
 
 # alias
-alias ls "ls -p -G"
+alias ls eza
 alias lt "eza -T"
-alias la "ls -A"
-alias ll "ls -l"
-alias lla "ll -A"
-alias g git
-alias c "ccr code"
+alias la "eza -A"
+alias ll "eza -l"
 
 if command -qv nvim
     alias vim nvim
@@ -33,9 +29,9 @@ function fish_greeting
 end
 
 # Surge Proxy
-# set -x https_proxy http://127.0.0.1:6152
-# set -x http_proxy http://127.0.0.1:6152
-# set -x all_proxy socks5://127.0.0.1:6153
+set -x https_proxy http://127.0.0.1:6152
+set -x http_proxy http://127.0.0.1:6152
+set -x all_proxy socks5://127.0.0.1:6153
 
 # Active Undercurl
 set -x TERM xterm-256color
@@ -54,20 +50,20 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# claude 通过 aihubmix 调用
-set --export ANTHROPIC_API_KEY sk-8ChckxXf7uEgQqr13d7b64Ca33B04d2589Df2d6f2a60Ac03
-set --export ANTHROPIC_BASE_URL "https://aihubmix.com"
-
 # pnpm
 set -gx PNPM_HOME /Users/zhijie/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-# Set Starship config based on system theme
-set -l theme (~/.config/scripts/get_theme.sh)
-if test "$theme" = dark
-    set -x STARSHIP_CONFIG ~/.config/starship-dark.toml
-else
-    set -x STARSHIP_CONFIG ~/.config/starship-light.toml
-end
+# AI APIKEY SETTING
+set -x GEMINI_API_KEY AIzaSyDITFUKYJR1WQ2b9bDzIgY_4xwH9Yg2d9k
+# Claude Code
+set -gx ANTHROPIC_API_KEY sk-9fOCeAUCZjfd1zMFF58f781390Db4053A4C8A95c8d1028Bd
+set -gx ANTHROPIC_BASE_URL "https://aihubmix.com"
+# AIhubmix Claude Code
+set -gx AIHUBMIX_API_KEY sk-9fOCeAUCZjfd1zMFF58f781390Db4053A4C8A95c8d1028Bd
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/zhijie/.lmstudio/bin
+# End of LM Studio CLI section

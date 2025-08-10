@@ -1,14 +1,3 @@
--- Detect system theme and set colorscheme accordingly
-local handle = io.popen("~/.config/scripts/get_theme.sh")
-local result = handle:read("*a")
-handle:close()
-local theme_mode = vim.trim(result) -- trim to remove newline
-
-local colorscheme = "catppuccin-latte"
-if theme_mode == "dark" then
-	colorscheme = "catppuccin-macchiato" -- 或者 "catppuccin-mocha"
-end
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -29,7 +18,7 @@ require("lazy").setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 			opts = {
-				colorscheme = colorscheme,
+				colorscheme = "solarized-osaka",
 				news = {
 					lazyvim = true,
 					neovim = true,
@@ -44,6 +33,7 @@ require("lazy").setup({
 		-- { import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
+		{ import = "lazyvim.plugins.extras.lang.java" },
 		-- { import = "lazyvim.plugins.extras.dap.core" },
 		-- { import = "lazyvim.plugins.extras.vscode" },
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
@@ -84,13 +74,6 @@ require("lazy").setup({
 				"tutor",
 				"zipPlugin",
 			},
-		},
-	},
-	ui = {
-		custom_keys = {
-			["<localleader>d"] = function(plugin)
-				dd(plugin)
-			end,
 		},
 	},
 	debug = false,
