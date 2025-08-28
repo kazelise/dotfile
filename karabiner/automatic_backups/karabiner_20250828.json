@@ -4,31 +4,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Short press Left Shift to switch input source, long press for standard Shift",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "left_shift" }],
-                                "to_after_key_up": [
-                                    {
-                                        "key_code": "0",
-                                        "modifiers": ["left_control", "left_option", "left_command"]
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "0",
-                                        "modifiers": ["left_control", "left_option", "left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper + i/j/k/l == vim directional Keys",
                         "manipulators": [
                             {

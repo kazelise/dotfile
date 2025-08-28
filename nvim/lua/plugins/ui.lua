@@ -89,16 +89,20 @@ return {
 	-- filename
 	{
 		"b0o/incline.nvim",
-		dependencies = { "craftzdog/solarized-osaka.nvim" },
+		dependencies = { "catppuccin/nvim" },
 		event = "BufReadPre",
 		priority = 1200,
 		config = function()
-			local colors = require("solarized-osaka.colors").setup()
+			-- 获取 catppuccin 的调色
+			local colors = require("catppuccin.palettes").get_palette("macchiato")
+
 			require("incline").setup({
 				highlight = {
 					groups = {
-						InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-						InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
+						-- 当前窗口标题: 用 catppuccin 的蓝色/浅色
+						InclineNormal = { guibg = colors.blue, guifg = colors.base },
+						-- 非当前窗口标题: 用淡紫/深背景
+						InclineNormalNC = { guibg = colors.mantle, guifg = colors.lavender },
 					},
 				},
 				window = { margin = { vertical = 0, horizontal = 1 } },
