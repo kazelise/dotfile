@@ -16,4 +16,8 @@
 !tmux/**
 !karabiner/
 !karabiner/**
+!opencode/
+!opencode/**
+!ghostty/
+!ghostty/**
 !.gitignore
